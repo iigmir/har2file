@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 /**
  * Create following directory:
  * /dist/foo
@@ -5,10 +7,9 @@
  * /dist/foo3
  * /dist/foo4
  * ... And so on
- * @param {string} name - Project name
- * @param {string} number - If project exists, increse number that will be useful.
+ * @param {string} name - Project name. I.E. "www.example.com".
+ * @param {string} number - This will be useful if project exists.
  */
-const fs = require("fs");
 module.exports = ({ name, number }) =>
 {
     let temp_number = number + 1;
