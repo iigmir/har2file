@@ -6,7 +6,6 @@ module.exports = function(har)
 {
     let files = har.log.entries;
     let project_name = create_project({ name: files[0].request.url.split("/")[2] , number:0 });
-    debugger;
     files.map( file =>
     {
         let response = file.response;
@@ -45,7 +44,7 @@ module.exports = function(har)
             {
                 content_text = content.text;
             }
-            write_files({ file_positison, mime_info, content_text });
+            write_files({ file_positison, mime_info, content_text, project_name });
         }
         else
         {
