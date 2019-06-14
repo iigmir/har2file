@@ -7,10 +7,16 @@ module.exports = function(har)
         let response = file.response;
         let response_success = response.status === 200;
         let file_positison = file.request.url.split("/");
-        let content = "";
+        let content = {};
+        let mime_type = [];
+        let text = "";
+        let encoded = false;
         if( response_success )
         {
             content = response.content;
+            mime_type = content.mimeType.split(";")[0].split("/");
+            text = content.text;
+            encoded = content.hasOwnProperty("encoding");
             debugger;
         }
         else
