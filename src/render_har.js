@@ -1,3 +1,5 @@
+const base64_decode = require("./base64_decode");
+
 module.exports = function(har)
 {
 
@@ -10,13 +12,26 @@ module.exports = function(har)
         let content = {};
         let mime_type = [];
         let text = "";
-        let encoded = false;
+        let should_encoded = false;
+        let decoded_contect;
         if( response_success )
         {
             content = response.content;
             mime_type = content.mimeType.split(";")[0].split("/");
-            text = content.text;
-            encoded = content.hasOwnProperty("encoding");
+            should_encoded = content.hasOwnProperty("encoding");
+            if( should_encoded )
+            {
+                if( content.encoding !== "base64" )
+                {
+                    console.error( content.encoding );
+                    throw new Error( "No suitable decode type." );
+                }
+                text = base64_decode( content.text );
+            }
+            else
+            {
+                text = content.text;
+            }
             debugger;
         }
         else
