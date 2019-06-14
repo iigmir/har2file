@@ -1,9 +1,10 @@
 const fs = require("fs");
+const mime_table = require("./mime_table");
 
 /**
  * Write files.
  * @param {Array} file_positison - File positison
- * @param {Object} mime_type - MMIE type info
+ * @param {Object} mime_type - MIME type info
  * @param {String} content_text - Texts waiting to write.
  */
 module.exports = function({ file_positison, mime_type, content_text })
@@ -28,8 +29,23 @@ module.exports = function({ file_positison, mime_type, content_text })
         {
             return create_project({ name, number: temp_number });
         }
-        fs.mkdirSync(dist_path, 0777);
+        // fs.mkdirSync(dist_path, 0777);
+        fs.mkdir(
+            dist_path,
+            { recursive: true },
+            err => create_files({
+                file_positison,
+                mime_type,
+                content_text,
+                create_project_error: err
+            })
+        );
         return;
     };
-    // create_project({ name: project_name, number: 1 });
+    let create_files = ({ create_project_error }) =>
+    {
+        if (create_project_error) throw create_project_error;
+        debugger;
+    };
+    create_project({ name: project_name, number: 1 });
 };

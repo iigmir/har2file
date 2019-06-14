@@ -1,4 +1,4 @@
-{
+module.exports = {
     "html"  : ".html" ,
     "css"   : ".css"  ,
     "javascript"    : ".js" ,
@@ -12,4 +12,4 @@
     "mp3"   : ".mp3"  ,
     "webp"  : ".webp" ,
     "woff2" : ".woff2"
-}
+};
