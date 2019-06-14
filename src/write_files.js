@@ -28,17 +28,8 @@ module.exports = function({ file_positison, mime_type, content_text })
         {
             return create_project({ name, number: temp_number });
         }
-        return dist_path;
+        fs.mkdirSync(dist_path, 0777);
+        return;
     };
-    create_project({ name: project_name, number: 1 });
-    // let path = "./dst/foo/bar.txt";
-    // if( !fs.existsSync(path) )
-    // {
-    //     fs.mkdirSync(path, 0744);
-    // }
-    // fs.writeFile( path , "<contenet>" , err =>
-    // {
-    //     if (err) throw err;
-    //     console.log('File is created successfully.');
-    // });
+    // create_project({ name: project_name, number: 1 });
 };
