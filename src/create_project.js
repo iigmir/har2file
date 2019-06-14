@@ -7,11 +7,9 @@
  * ... And so on
  * @param {string} name - Project name
  * @param {string} number - If project exists, increse number that will be useful.
- * @param {function} callback - If create success, call this param function.
  */
-
 const fs = require("fs");
-module.exports = ({ name, number, callback }) =>
+module.exports = ({ name, number }) =>
 {
     let temp_number = number + 1;
     let tmep_str = temp_number > 1 ? String( temp_number ) : "";
@@ -20,6 +18,10 @@ module.exports = ({ name, number, callback }) =>
     {
         return create_project({ name, number: temp_number });
     }
-    fs.mkdir( dist_path, { recursive: true }, err => callback(err) );
+    fs.mkdir( dist_path, { recursive: true }, error =>
+    {
+        if (error) throw error;
+        console.log("Project created.")
+    });
     return;
 };

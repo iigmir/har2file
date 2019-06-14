@@ -45,7 +45,6 @@ module.exports = function(har)
         {
             let warn_msg = `Warning: The file ${ file.request.url } is not vaild because HTTP code is ${ response.status }`;
             console.warn(warn_msg);
-            debugger;
         }
     });
     
