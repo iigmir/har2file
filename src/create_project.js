@@ -10,7 +10,7 @@ const fs = require("fs");
  * @param {string} name - Project name. I.E. "www.example.com".
  * @param {string} number - This will be useful if project exists.
  */
-module.exports = ({ name, number }) =>
+let create_project = ({ name, number }) =>
 {
     let temp_number = number + 1;
     let tmep_str = temp_number > 1 ? String( temp_number ) : "";
@@ -24,5 +24,7 @@ module.exports = ({ name, number }) =>
         if (error) throw error;
         console.log("Project created.");
     });
-    return;
+    return dist_path;
 };
+
+module.exports = create_project;

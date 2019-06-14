@@ -6,7 +6,8 @@ module.exports = function(har)
 {
     let files = har.log.entries;
     let project_name = files[0].request.url.split("/")[2];
-    create_project({ name:project_name, number:0 });
+    let cp = create_project({ name:project_name, number:0 });
+    debugger;
     files.map( file =>
     {
         let response = file.response;
