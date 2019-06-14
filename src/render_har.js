@@ -5,8 +5,7 @@ const create_project = require("./create_project");
 module.exports = function(har)
 {
     let files = har.log.entries;
-    let project_name = files[0].request.url.split("/")[2];
-    let cp = create_project({ name:project_name, number:0 });
+    let project_name = create_project({ name: files[0].request.url.split("/")[2] , number:0 });
     debugger;
     files.map( file =>
     {
