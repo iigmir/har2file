@@ -9,6 +9,8 @@
  * @param {string} number - If project exists, increse number that will be useful.
  * @param {function} callback - If create success, call this param function.
  */
+
+const fs = require("fs");
 module.exports = ({ name, number, callback }) =>
 {
     let temp_number = number + 1;
