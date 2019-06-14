@@ -13,7 +13,7 @@
         },{
             "type": "node",
             "request": "launch",
-            "name": "Launch typical case",
+            "name": "Launch node.org case",
             "program": "${workspaceFolder}\\index.js",
             "args": ["./test/test2.har"]
         }

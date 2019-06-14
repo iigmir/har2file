@@ -15,11 +15,18 @@ module.exports = function({ file_positison, mime_info, content_text, project_nam
     let content_name = "";
     let content_ext = mime_table[ mime_info.type[1] ];
     let file_name = "";
-    if( mime_info.type[1] === "html" && file_positison[1] === "" )
+    let file_has_own_name = /\./g.test( file_positison[file_positison.length-1] );
+    if( file_positison[ file_positison.length - 1 ] === "" )
     {
-        content_name = "/index";
+        content_name = "index";
     }
-    file_name = project_name + content_name + content_ext;
+    else if( file_has_own_name )
+    {
+        content_name = file_positison[ file_positison.length - 1 ];
+        content_ext = "";
+    }
+    file_name = project_name + "/" + content_name + content_ext;
+    debugger;
     fs.writeFile( file_name, content_text, err =>
     {
         if (err) throw err;
