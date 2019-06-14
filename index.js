@@ -1,7 +1,6 @@
 const fs = require("fs");
-let filename = "";
-
 const main = require("./src/index");
+let filename = "";
 
 if (process.argv.length < 3)
 {   // Make sure we got a filename on the command line.
