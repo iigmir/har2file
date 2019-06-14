@@ -9,9 +9,13 @@ module.exports = function(har)
     {
         let response = file.response;
         let response_success = response.status === 200;
-        // file_positison will filter "http(s)", "", "example.com" .slice(3)
         let file_positison = file.request.url.split("/");
         let content = {};
+        /**
+         * What type of this file is? Does this file encoded? The answers is MMIE.
+         * @property {array} type - MMIT type info.
+         * @property {boolean} should_encoded - Does this file encoded?
+         */
         let mmie_info = { type:[], should_encoded: false };
         let content_text = "";
         

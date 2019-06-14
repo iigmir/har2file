@@ -1,5 +1,11 @@
+/**
+ * Decode Base64 string.
+ * Code is from https://github.com/mathiasbynens/base64/blob/master/src/base64.js
+ * @param {string} input - String needs to decode.
+ * @returns {string} - Decoded result.
+ */
 module.exports = function(input)
-{   // From https://github.com/mathiasbynens/base64/blob/master/src/base64.js
+{
     let TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     let REGEX_SPACE_CHARACTERS = /<%= spaceCharacters %>/g;
     input = String(input).replace(REGEX_SPACE_CHARACTERS, "");
