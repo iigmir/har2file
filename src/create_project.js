@@ -14,7 +14,7 @@ let create_project = ({ name, number }) =>
 {
     let temp_number = number + 1;
     let tmep_str = temp_number > 1 ? String( temp_number ) : "";
-    let dist_path = name + tmep_str;
+    let dist_path = "dist/" + name + tmep_str;
     if( fs.existsSync(dist_path) )
     {
         return create_project({ name, number: temp_number });
