@@ -22,7 +22,7 @@ module.exports = ({ name, number }) =>
     fs.mkdir( dist_path, { recursive: true }, error =>
     {
         if (error) throw error;
-        console.log("Project created.")
+        console.log("Project created.");
     });
     return;
 };

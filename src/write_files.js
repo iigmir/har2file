@@ -8,8 +8,9 @@ const mime_table = require("./mime_table");
  */
 module.exports = function({ file_positison, mime_info, content_text })
 {
-    // let project_name = file_positison[2];
-    let positison = file_positison;
+    let project = "/dist/" + file_positison[0];
+    let pathes = file_positison.slice(1);
+    debugger;
     
     let create_files_func = create_project_error =>
     {
