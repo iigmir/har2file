@@ -12,7 +12,11 @@ module.exports = function(har)
     {
         let response = file.response;
         let response_success = response.status === 200;
-        let file_positison = file.request.url.split("/");
+        /**
+         * Delete http(s)://www.example.com like:
+         * ["http:", "", "www.example.com", ""] => [""]
+         */
+        let file_positison = file.request.url.split("/").slice(3);
         let content = {};
         /**
          * What type of this file is? Does this file encoded? The answers is MMIE.
