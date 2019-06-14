@@ -1,5 +1,4 @@
 const mime_table = require("./mime_table");
-const create_project = require("./create_project");
 
 /**
  * Write files.
@@ -18,5 +17,5 @@ module.exports = function({ file_positison, mmie_info, content_text })
         debugger;
         if (create_project_error) throw create_project_error;
     };
-    create_project({ name, number:0 });
+    // create_project({ name, number:0 });
 };
