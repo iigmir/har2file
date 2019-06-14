@@ -1,4 +1,5 @@
 const mime_table = require("./mime_table");
+const fs = require("fs");
 
 /**
  * Write files.
@@ -11,10 +12,11 @@ module.exports = function({ file_positison, mime_info, content_text, project_nam
 {
     let pathes = file_positison.slice(1);
     let content_file_name = "";
+    let content_name = "";
     if( mime_info.type[1] === "html" && file_positison[1] === "" )
     {
-        content_name = "index.html"
-        false.writeFile( content_name, content_text, err =>
+        content_name = project_name + "/index.html";
+        fs.writeFile( content_name, content_text, err =>
         {
             if (err) throw err;
             console.log("index.html file has been saved!");

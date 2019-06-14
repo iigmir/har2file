@@ -7,9 +7,15 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch example.com case",
             "program": "${workspaceFolder}\\index.js",
             "args": ["./test/test.har"]
+        },{
+            "type": "node",
+            "request": "launch",
+            "name": "Launch typical case",
+            "program": "${workspaceFolder}\\index.js",
+            "args": ["./test/test2.har"]
         }
     ]
 }
