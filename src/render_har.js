@@ -4,7 +4,6 @@ const create_project = require("./create_project");
 
 module.exports = function(har)
 {
-
     let files = har.log.entries;
     let project_name = files[0].request.url.split("/")[2];
     create_project({ name:project_name, number:0 });
@@ -14,9 +13,9 @@ module.exports = function(har)
         let response_success = response.status === 200;
         /**
          * Delete http(s)://www.example.com like:
-         * ["http:", "", "www.example.com", ""] => [""]
+         * ["http:", "", "www.example.com", ""] => ["www.example.com", ""]
          */
-        let file_positison = file.request.url.split("/").slice(3);
+        let file_positison = file.request.url.split("/").slice(2);
         let content = {};
         /**
          * What type of this file is? Does this file encoded? The answers is MMIE.
