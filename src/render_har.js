@@ -22,17 +22,17 @@ module.exports = function(har)
          * @property {array} type - MMIT type info.
          * @property {boolean} should_encoded - Does this file encoded?
          */
-        let mmie_info = { type:[], should_encoded: false };
+        let mime_info = { type:[], should_encoded: false };
         let content_text = "";
         
         if( response_success )
         {
             content = response.content;
-            mmie_info = {
+            mime_info = {
                 type: content.mimeType.split(";")[0].split("/"),
                 should_encoded: content.hasOwnProperty("encoding")
             };
-            if( mmie_info.should_encoded )
+            if( mime_info.should_encoded )
             {
                 if( content.encoding !== "base64" )
                 {
@@ -45,7 +45,7 @@ module.exports = function(har)
             {
                 content_text = content.text;
             }
-            write_files({ file_positison, mmie_info, content_text });
+            write_files({ file_positison, mime_info, content_text });
         }
         else
         {
