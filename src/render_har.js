@@ -1,4 +1,4 @@
-const base64_decode = require("./base64_decode");
+const base64 = require("base-64");
 const write_files = require("./write_files");
 const create_project = require("./create_project");
 
@@ -38,7 +38,7 @@ module.exports = function(har)
                     console.error( content.encoding );
                     throw new Error( "No suitable decode type." );
                 }
-                content_text = base64_decode( content.text );
+                content_text = base64.decode( content.text );
             }
             else
             {
